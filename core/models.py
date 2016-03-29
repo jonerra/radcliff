@@ -15,7 +15,7 @@ class Player(models.Model):
     Zipcode = models.IntegerField()
     PhoneNumber = models.IntegerField()
     Level = models.CharField(max_length=300)
-    
+
     def __unicode__(self):
         return self.GuardianLastName
 
@@ -31,6 +31,9 @@ class Volunteer(models.Model):
     Email = models.EmailField(max_length=300)
     Returning = models.CharField(max_length=300)
     Children = models.CharField(max_length=300)
+
+    def __unicode__(self):
+        return self.LastName
 
 class Field(models.Model):
     Location = models.CharField(max_length=100)

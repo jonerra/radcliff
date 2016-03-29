@@ -13,5 +13,11 @@ class PlayerRegistration(CreateView):
     fields = ["GuardianFirstName", "GuardianLastName", "PlayerFirstName", "PlayerLastName", 'DateOfBirth', 'Street', 'City', 'State', 'Zipcode', 'PhoneNumber', 'Level']
     success_url = reverse_lazy('success')
 
+class VolunteerRegistration(CreateView):
+    model = Volunteer
+    template_name = "registration/volunteer_registration.html"
+    fields = ["FirstName", "LastName", "DateOfBirth", "Street", "City", "State", "Zipcode", "PhoneNumber", "Email", "Returning", "Children"]
+    success_url = reverse_lazy('success')
+
 class Success(TemplateView):
     template_name = "success.html"
