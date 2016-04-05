@@ -1,23 +1,33 @@
 {% extends "base.html" %}
+{% load bootstrap3 %}
 {% block content %}
 <div class="jumbotron">
     <div class="row">
         <div class="col-md-6">
-            <img width="275" height = "183" src="http://grfx.cstv.com/schools/rutu/graphics/facilities/images/bainton1.jpg">
+            <img width="275" height="183" src="http://grfx.cstv.com/schools/rutu/graphics/facilities/images/bainton1.jpg">
             <h3>Throw in some text here</h3>
         </div>
         <div class="col-md-6">
-            <img width="275" height = "183" src="http://portlandtribune.com/images/artimg/00003506964216.jpg">
+            <img width="275" height="183" src="http://portlandtribune.com/images/artimg/00003506964216.jpg">
             <h3>Throw in some text here</h3>
         </div>
         <div class="col-md-6">
-            <img width="275" height = "183" src="http://aplus1lawnservices.com/mmlawnservices/wp-content/uploads/2014/10/star-pattern.jpg"></a>
+            <img width="275" height="183" src="http://aplus1lawnservices.com/mmlawnservices/wp-content/uploads/2014/10/star-pattern.jpg"></a>
             <h3>Throw in some text here</h3>
         </div>
         <div class="col-md-6">
-            <img width="275" height = "183" src="http://athletics.rose-hulman.edu/facilities/Facilities_Photos/Baseball/base-rotator-1.jpg"></a>
+            <img width="275" height="183" src="http://athletics.rose-hulman.edu/facilities/Facilities_Photos/Baseball/base-rotator-1.jpg"></a>
             <h3>Throw in some text here</h3>
         </div>
+        {% if user.is_authenticated %}
+        <div class="col-lg-3">
+            <form method="post" action="">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+            <button type="submit" class="btn btn-primary">Reserve</button>
+            </form>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

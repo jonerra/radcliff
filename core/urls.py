@@ -11,5 +11,5 @@ urlpatterns = patterns('',
     url(r'^roster/$', PlayerRoster.as_view(), name='player_roster'),
     url(r'^update/create/$', LeagueUpdate.as_view(), name='update_create'),
     url(r'^league/$', UpdateList.as_view(), name='update_list'),
-    url(r'^fields/$', Field.as_view(), name='field'),
+    url(r'^fields/$', ReserveField.as_view(), name='field'),
 )

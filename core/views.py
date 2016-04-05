@@ -39,5 +39,8 @@ class UpdateList(ListView):
     model = Update
     template_name = "update/update_list.html"
     
-class Field(TemplateView):
+class ReserveField(CreateView):
+    model = Reservation
     template_name = "fields.html"
+    fields = ['FieldName', 'Date']
+    success_url = reverse_lazy('success')

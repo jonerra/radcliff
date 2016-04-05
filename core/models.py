@@ -2,6 +2,24 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
 
+FIELDS = (
+(0, ''),
+(1, 'Field 1'),
+(2, 'Field 2'),
+(3, 'Field 3'),
+(4, 'Field 4'),
+)
+
+DATES = (
+(0, ''),
+(1, '8:00AM - 10:00AM'),
+(2, '10:00AM - 12:00PM'),
+(3, '12:00PM - 2:00PM'),
+(4, '2:00PM - 4:00PM'),
+(5, '4:00PM - 6:00PM'),
+(6, '6:00PM - 8:00PM'),
+)
+
 # Create your models here.
 class Player(models.Model):
     GuardianFirstName = models.CharField(max_length=300)
@@ -61,9 +79,10 @@ class Roster(models.Model):
     PlayerID = models.ForeignKey(Player)
 
 class Reservation(models.Model):
-    FieldID = models.ForeignKey(Field)
-    VolunteerID = models.ForeignKey(Volunteer)
-    Date = models.DateField()
+    FieldName = models.IntegerField(choices=FIELDS, default=0)
+    Date = models.IntegerField(choices=DATES, default=0, unique=True)
+    # FieldID = models.ForeignKey(Field)
+    # VolunteerID = models.ForeignKey(Volunteer)
     
 class Update(models.Model):
     title = models.CharField(max_length=300)
