@@ -23,3 +23,7 @@ h2 {
     margin-top: 10px;
     margin-bottom: -0.5px;
 }
+
+.col-md-6 {
+    padding-left: 60px;
+}

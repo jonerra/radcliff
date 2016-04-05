@@ -38,3 +38,6 @@ class LeagueUpdate(CreateView):
 class UpdateList(ListView):
     model = Update
     template_name = "update/update_list.html"
+    
+class Field(TemplateView):
+    template_name = "fields.html"
