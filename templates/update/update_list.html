@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <div class="row">
+        <h2>Board Information goes here</h2>
+    </div>
+</div>
+{% for update in object_list %}
+<div class="panel">
+    <h3>{{ update.description }}</h3>
+    <p>Posted by {{ update.user.username }} on {{ update.created_at }}</p>
+</div>
+{% endfor %}
+{% endblock %}

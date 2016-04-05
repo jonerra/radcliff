@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
 from django.core.urlresolvers import reverse_lazy
 from .models import *
 
@@ -21,3 +21,20 @@ class VolunteerRegistration(CreateView):
 
 class Success(TemplateView):
     template_name = "success.html"
+
+class PlayerRoster(TemplateView):
+    template_name = "roster.html"
+
+class LeagueUpdate(CreateView):
+    model = Update
+    template_name = "update/league_update.html"
+    fields = ['title', 'description']
+    success_url = reverse_lazy('success')
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(LeagueUpdate, self).form_valid(form)
+        
+class UpdateList(ListView):
+    model = Update
+    template_name = "update/update_list.html"

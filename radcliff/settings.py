@@ -128,3 +128,5 @@ STATICFILES_DIRS = (os.path.join(MAIN_DIR, 'static'),)
 LOGIN_URL = '/user/login'
 LOGIN_REDIRECT_URL = '/'
 SITE_ID = 1
+
+# AUTH_USER_MODEL = "radcliff.UserProfile"
