@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView, ListView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView
 from django.core.urlresolvers import reverse_lazy
 from .models import *
 
@@ -39,8 +39,11 @@ class UpdateList(ListView):
     model = Update
     template_name = "update/update_list.html"
     
-class ReserveField(CreateView):
-    model = Reservation
+class FieldList(ListView):
+    model = Field
     template_name = "fields.html"
-    fields = ['FieldName', 'Date']
-    success_url = reverse_lazy('success')
+    # success_url = reverse_lazy('success')
+    
+class FieldDetail(DetailView):
+    model = Field
+    template_name = "fields/field_detail.html"

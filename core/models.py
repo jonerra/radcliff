@@ -1,24 +1,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
-
-FIELDS = (
-(0, ''),
-(1, 'Field 1'),
-(2, 'Field 2'),
-(3, 'Field 3'),
-(4, 'Field 4'),
-)
-
-DATES = (
-(0, ''),
-(1, '8:00AM - 10:00AM'),
-(2, '10:00AM - 12:00PM'),
-(3, '12:00PM - 2:00PM'),
-(4, '2:00PM - 4:00PM'),
-(5, '4:00PM - 6:00PM'),
-(6, '6:00PM - 8:00PM'),
-)
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Player(models.Model):
@@ -54,8 +37,15 @@ class Volunteer(models.Model):
         return self.LastName
 
 class Field(models.Model):
-    Location = models.CharField(max_length=100)
-    Fieldsize = models.CharField(max_length=300)
+    FieldName = models.CharField(max_length=100)
+    Street = models.CharField(max_length=100)
+    City = models.CharField(max_length=100)
+    
+    def __unicode__(self):
+        return self.FieldName
+        
+    def get_absolute_url(self):
+        return reverse('field_detail', args=[self.id])
 
 class Position(models.Model):
     PositionDescrip = models.CharField(max_length=300)
@@ -79,10 +69,8 @@ class Roster(models.Model):
     PlayerID = models.ForeignKey(Player)
 
 class Reservation(models.Model):
-    FieldName = models.IntegerField(choices=FIELDS, default=0)
-    Date = models.IntegerField(choices=DATES, default=0, unique=True)
-    # FieldID = models.ForeignKey(Field)
-    # VolunteerID = models.ForeignKey(Volunteer)
+    FieldID = models.ForeignKey(Field)
+    VolunteerID = models.ForeignKey(Volunteer)
     
 class Update(models.Model):
     title = models.CharField(max_length=300)

@@ -5,3 +5,5 @@ from models import *
 admin.site.register(Player)
 admin.site.register(Volunteer)
 admin.site.register(Update)
+admin.site.register(Reservation)
+admin.site.register(Field)
