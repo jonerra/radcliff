@@ -22,7 +22,8 @@ class VolunteerRegistration(CreateView):
 class Success(TemplateView):
     template_name = "success.html"
 
-class PlayerRoster(TemplateView):
+class PlayerRoster(ListView):
+    model = Player
     template_name = "roster.html"
 
 class LeagueUpdate(CreateView):
@@ -41,7 +42,7 @@ class UpdateList(ListView):
     
 class FieldList(ListView):
     model = Field
-    template_name = "fields.html"
+    template_name = "fields/fields.html"
     # success_url = reverse_lazy('success')
     
 class FieldDetail(DetailView):

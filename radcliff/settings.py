@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'registration',
     'django.contrib.sites',
+    'bootstrap3_datetime',
 ]
 
 MIDDLEWARE_CLASSES = [

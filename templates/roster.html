@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="jumbotron">
-    <h1>Coming soon...</h1>
-    <p>Team rosters will be available after the draft.</p>
+    <h1>Pawtucket Red Sox</h1>
+    {% for player in object_list|slice:"10:" %}
+    <p>{{ player.PlayerFirstName }}  {{ player.PlayerLastName }} {% if user.is_authenticated %} {{ player.PhoneNumber }} {% endif %}</p>
+    {% endfor %}
+</div>
+<div class ="jumbotron">
+    <h1>New York 51s</h1>
+    {% for player in object_list|slice:":10" %}
+    <p>{{ player.PlayerFirstName }}  {{ player.PlayerLastName }}</p>
+    {% if user.is_authenticated %}
+    <p>     Phone Number: {{ player.PhoneNumber }}</p>
+    {% endif %}
+    {% endfor %}
 </div>
 {% endblock %}

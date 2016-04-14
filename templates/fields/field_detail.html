@@ -1,7 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
-<img width="275" height="183" src="http://grfx.cstv.com/schools/rutu/graphics/facilities/images/bainton1.jpg">
-<h1>{{ field.FieldName }}</h1>
-<p>{{ field.Street }}</p>
-<p>{{ field.City }}</p>
+<div class="jumbotron">
+    <img width="275" height="183" src="http://grfx.cstv.com/schools/rutu/graphics/facilities/images/bainton1.jpg">
+    <h1>{{ field.FieldName }}</h1>
+    <p>{{ field.Street }}</p>
+    <p>{{ field.City }}</p>
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
+        </div>
+    </div>
+    <body>
+        <form method="post" role="form">
+            {% for field in form.visible_fields %}
+            <div id="div_{{ field.html_name }}"
+                 class="form-group{% if field.errors %} has-error{% endif %}">
+                {{ field.label_tag }}
+                {{ field }}
+                <div class="text-muted pull-right">
+                    <small>{{ field.help_text }}</small>
+                </div>
+                <div class="help-block">
+                    {{ field.errors }}
+                </div>
+            </div>
+            {% endfor %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </body>
+</div>
 {% endblock %}

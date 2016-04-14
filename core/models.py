@@ -3,35 +3,41 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.core.urlresolvers import reverse
 
+returning_choices =(
+(0, ''),
+(1, 'Yes'),
+(2, 'No'),
+)
+
 # Create your models here.
 class Player(models.Model):
-    GuardianFirstName = models.CharField(max_length=300)
-    GuardianLastName = models.CharField(max_length=300)
-    PlayerFirstName = models.CharField(max_length=300)
-    PlayerLastName = models.CharField(max_length=300)
-    DateOfBirth = models.DateField()
+    GuardianFirstName = models.CharField('Guardian First Name', max_length=300)
+    GuardianLastName = models.CharField('Guardian Last Name', max_length=300)
+    PlayerFirstName = models.CharField('Player First Name', max_length=300)
+    PlayerLastName = models.CharField('Player Last Name', max_length=300)
+    DateOfBirth = models.DateField('Date of Birth')
     Street = models.CharField(max_length=300)
     City = models.CharField(max_length=300)
     State = models.CharField(max_length=300)
     Zipcode = models.IntegerField()
-    PhoneNumber = models.IntegerField()
+    PhoneNumber = models.IntegerField('Phone Number')
     Level = models.CharField(max_length=300)
 
     def __unicode__(self):
         return self.GuardianLastName
 
 class Volunteer(models.Model):
-    FirstName = models.CharField(max_length=300)
-    LastName = models.CharField(max_length=300)
-    DateOfBirth = models.DateField()
+    FirstName = models.CharField('First Name', max_length=300)
+    LastName = models.CharField('Last Name', max_length=300)
+    DateOfBirth = models.DateField('Date of Birth')
     Street = models.CharField(max_length=300)
     City = models.CharField(max_length=300)
     State = models.CharField(max_length=300)
     Zipcode = models.IntegerField()
-    PhoneNumber = models.IntegerField()
+    PhoneNumber = models.IntegerField('Phone Number')
     Email = models.EmailField(max_length=300)
-    Returning = models.CharField(max_length=300)
-    Children = models.CharField(max_length=300)
+    Returning = models.IntegerField(choices=returning_choices, default=0)
+    Children = models.IntegerField(null=True)
 
     def __unicode__(self):
         return self.LastName
