@@ -18,12 +18,10 @@ level_choices = (
 )
 
 time_choices = (
-(0, ''),
+(0, '') 
 (1, '8:00 AM - 10:00 AM'),
 (2, '10:00 AM - 12:00 PM'),
-(3, '12:00 PM - 2:00 PM'),
-(4, '2:00 PM - 4:00 PM'),
-(5, '4:00 PM - 6:00 PM'),
+(3, '12:00 PM - 2:0')
 )
 
 # Create your models here.
@@ -96,10 +94,7 @@ class Reservation(models.Model):
     FieldID = models.ForeignKey(Field)
     VolunteerID = models.ForeignKey(Volunteer)
     Date = models.DateField()
-    Time = models.IntegerField(choices=time_choices, default=0)
-    
-    class Meta:
-        unique_together = ('Date', 'Time', 'FieldID')
+    Time - models.IntegerField(choices=time_choices, default=0)
     
 class Update(models.Model):
     title = models.CharField(max_length=300)

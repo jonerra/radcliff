@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'registration',
     'django.contrib.sites',
     'bootstrap3_datetime',
+    # 'phonenumber_field',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -129,5 +130,5 @@ STATICFILES_DIRS = (os.path.join(MAIN_DIR, 'static'),)
 LOGIN_URL = '/user/login'
 LOGIN_REDIRECT_URL = '/'
 SITE_ID = 1
-
-# AUTH_USER_MODEL = "radcliff.UserProfile"
+# PHONENUMBER_DB_FORMAT = 'NATIONAL'
+# PHONENUMBER_DEFAULT_REGION = 'NATIONAL'
