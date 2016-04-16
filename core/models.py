@@ -32,25 +32,28 @@ class Player(models.Model):
     GuardianLastName = models.CharField('Guardian Last Name', max_length=300)
     PlayerFirstName = models.CharField('Player First Name', max_length=300)
     PlayerLastName = models.CharField('Player Last Name', max_length=300)
-    DateOfBirth = models.DateField('Date of Birth')
+    DateOfBirth = models.DateField('Date Of Birth')
     Street = models.CharField(max_length=300)
     City = models.CharField(max_length=300)
     State = models.CharField(max_length=300)
-    Zipcode = models.IntegerField()
+    Zipcode = models.IntegerField('Zip Code')
     PhoneNumber = models.IntegerField('Phone Number')
     Level = models.IntegerField(choices=level_choices, default=0)
 
     def __unicode__(self):
         return self.GuardianLastName
+        
+    def get_absolute_url(self):
+        return reverse('player_detail', args=[self.id])
 
 class Volunteer(models.Model):
     FirstName = models.CharField('First Name', max_length=300)
     LastName = models.CharField('Last Name', max_length=300)
-    DateOfBirth = models.DateField('Date of Birth')
+    DateOfBirth = models.DateField('Date Of Birth')
     Street = models.CharField(max_length=300)
     City = models.CharField(max_length=300)
     State = models.CharField(max_length=300)
-    Zipcode = models.IntegerField()
+    Zipcode = models.IntegerField('Zip Code')
     PhoneNumber = models.IntegerField('Phone Number')
     Email = models.EmailField(max_length=300)
     Returning = models.IntegerField(choices=returning_choices, default=0)

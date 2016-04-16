@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^fields/(?P<pk>\d+)/$', FieldDetail.as_view(), name='field_detail'),
     url(r'^fields/create/$', FieldReservationCreateView.as_view(), name='field_create'),
     url(r'^fields/update/(?P<pk>\d+)/$', FieldReservationUpdateView.as_view(), name='field_update'),
+    url(r'^roster/(?P<pk>\d+)/$', PlayerInfoDetailView.as_view(), name='player_detail'),
 )

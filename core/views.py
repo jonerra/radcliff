@@ -69,3 +69,7 @@ class FieldReservationUpdateView(UpdateView):
     success_url = reverse_lazy('field_list')
     template_name = "fields/reservation_form.html"
     fields = ['Date', 'Time', 'FieldID', 'VolunteerID']
+    
+class PlayerInfoDetailView(DetailView):
+    model = Player
+    template_name = "player_info.html"

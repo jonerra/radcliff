@@ -9,11 +9,11 @@
         <p>John Farrell -> Head Coach, Red Sox</p>
         <p>Terry Collins -> Head Coach, Area 51s</p>
     </div>
+    {% for update in object_list %}
+    <div class="panel">
+        <h3>{{ update.description }}</h3>
+        <p>Posted by {{ update.user.username }} on {{ update.created_at }}</p>
+    </div>
+    {% endfor %}
 </div>
-{% for update in object_list %}
-<div class="panel">
-    <h3>{{ update.description }}</h3>
-    <p>Posted by {{ update.user.username }} on {{ update.created_at }}</p>
-</div>
-{% endfor %}
 {% endblock %}
