@@ -31,7 +31,7 @@ class LeagueUpdate(CreateView):
     model = Update
     template_name = "update/league_update.html"
     fields = ['title', 'description']
-    success_url = reverse_lazy('success')
+    success_url = reverse_lazy('update_list')
     
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -59,9 +59,12 @@ class FieldDetail(DetailView):
 class FieldReservationCreateView(CreateView):
     model = Reservation
     #form = ReservationUpdateView
-    success_url = reverse_lazy('field_list')
+    success_url = reverse_lazy('reservation_success')
     template_name = "fields/reservation_form.html"
     fields = ['Date', 'Time', 'FieldID', 'VolunteerID']
+    
+class FieldReservationSuccess(TemplateView):
+    template_name = "fields/reservation_success.html"
     
 class FieldReservationUpdateView(UpdateView):
     model = Reservation

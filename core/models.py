@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
 from django.core.urlresolvers import reverse
-# from phonenumber_field.modelfields import PhoneNumberField
+from phonenumber_field.modelfields import PhoneNumberField
 
 returning_choices = (
 (0, ''),
@@ -37,7 +37,7 @@ class Player(models.Model):
     City = models.CharField(max_length=300)
     State = models.CharField(max_length=300)
     Zipcode = models.IntegerField('Zip Code')
-    PhoneNumber = models.IntegerField('Phone Number')
+    PhoneNumber = PhoneNumberField('Phone Number')
     Level = models.IntegerField(choices=level_choices, default=0)
 
     def __unicode__(self):
