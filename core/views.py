@@ -41,6 +41,12 @@ class UpdateList(ListView):
     model = Update
     template_name = "update/update_list.html"
     
+    def get_context_data(self, **kwargs):
+        context = super(UpdateList, self).get_context_data(**kwargs)
+        update_list = Update.objects.all()[:2]
+        context['update_list'] = update_list
+        return context
+    
 class FieldList(ListView):
     model = Field
     template_name = "fields/field_list.html"

@@ -37,7 +37,8 @@ class Player(models.Model):
     City = models.CharField(max_length=300)
     State = models.CharField(max_length=300)
     Zipcode = models.IntegerField('Zip Code')
-    PhoneNumber = PhoneNumberField('Phone Number')
+    # PhoneNumber = PhoneNumberField(verbose_name='Phone Number')
+    PhoneNumber = models.CharField(max_length=50, verbose_name='Phone Number', help_text="Please use the following format: <em>555-555-5555</em>.")
     Level = models.IntegerField(choices=level_choices, default=0)
 
     def __unicode__(self):
@@ -54,7 +55,7 @@ class Volunteer(models.Model):
     City = models.CharField(max_length=300)
     State = models.CharField(max_length=300)
     Zipcode = models.IntegerField('Zip Code')
-    PhoneNumber = models.IntegerField('Phone Number')
+    PhoneNumber = models.CharField(max_length=50, verbose_name='Phone Number', help_text="Please use the following format: <em>555-555-5555</em>.")
     Email = models.EmailField(max_length=300)
     Returning = models.IntegerField(choices=returning_choices, default=0)
     Children = models.IntegerField(null=True)
@@ -96,8 +97,8 @@ class Roster(models.Model):
     PlayerID = models.ForeignKey(Player)
 
 class Reservation(models.Model):
-    FieldID = models.ForeignKey(Field)
-    VolunteerID = models.ForeignKey(Volunteer)
+    FieldID = models.ForeignKey(Field, verbose_name='Field')
+    VolunteerID = models.ForeignKey(Volunteer, verbose_name='Coach')
     Date = models.DateField()
     Time = models.IntegerField(choices=time_choices, default=0)
     

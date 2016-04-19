@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="jumbotron">
-    <div class="row">
-        <h2>Board Information</h2>
-        <p>Rob Manford -> League Commissioner</p>
-        <p>Justin Ford -> Director of Umpires</p>
-        <p>Joe Torre -> Director of Coaches</p>
-        <p>John Farrell -> Head Coach, Red Sox</p>
-        <p>Terry Collins -> Head Coach, Area 51s</p>
-    </div>
-    {% for update in object_list %}
+        {% for update in update_list %}
     <div class="panel">
         <h3>{{ update.description }}</h3>
         <p>Posted by {{ update.user.username }} on {{ update.created_at }}</p>
     </div>
     {% endfor %}
+    <div class="row">
+        <h2>League Board Information</h2>
+        <p>Rob Manfred -> League Commissioner</p>
+        <p>Justin Ford -> Director of Umpires</p>
+        <p>Joe Torre -> Director of Coaches</p>
+        <p>John Farrell -> Head Coach, Red Sox</p>
+        <p>Terry Collins -> Head Coach, Area 51s</p>
+    </div>
 </div>
 {% endblock %}
