@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 <div class="jumbotron">
-    <img width="275" height="183" src="http://grfx.cstv.com/schools/rutu/graphics/facilities/images/bainton1.jpg">
+    <!-- <img width="275" height="183" src="http://grfx.cstv.com/schools/rutu/graphics/facilities/images/bainton1.jpg"> -->
+    <img width="275" height="183" src="{% static field.Picture.url  %}">
     <h1>{{ field.FieldName }}</h1>
     <p>{{ field.Street }}</p>
     <p>{{ field.City }}</p>

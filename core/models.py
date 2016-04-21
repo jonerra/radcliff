@@ -67,7 +67,7 @@ class Field(models.Model):
     FieldName = models.CharField(max_length=100)
     Street = models.CharField(max_length=100)
     City = models.CharField(max_length=100)
-    Picture = models.ImageField(null=True)
+    Picture = models.ImageField(upload_to='images', default='images', null=True)
     
     def __unicode__(self):
         return self.FieldName
@@ -101,6 +101,9 @@ class Reservation(models.Model):
     VolunteerID = models.ForeignKey(Volunteer, verbose_name='Coach')
     Date = models.DateField()
     Time = models.IntegerField(choices=time_choices, default=0)
+    
+    def __unicode__(self):
+        return u'%s %s' % (self.Date, self.VolunteerID)
     
     class Meta:
         unique_together = ('Date', 'Time', 'FieldID')
