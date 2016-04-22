@@ -2,12 +2,12 @@
 {% block content %}
 <div class="jumbotron">
     <h1 align="center">{{ player.PlayerFirstName }} {{ player.PlayerLastName }}</h1>
-    <p>Guardian: {{ player.GuardianFirstName }} {{ player.GuardianLastName }}</p>
-    <p>Date Of Birth: {{ player.DateOfBirth }}</p>
-    <p>Address: {{ player.Street }}</p>
-    <p>City: {{ player.City}}</p>
-    <p>State: {{ player.State}}</p>
-    <p>Zip Code: {{ player.Zipcode }}</p>
-    <p>Phone Number: {{ player.PhoneNumber }}</p>
+    <p>Guardian: <span class="center">{{ player.GuardianFirstName }} {{ player.GuardianLastName }}</p>
+    <p>Date Of Birth: <span class="center">{{ player.DateOfBirth }}</p>
+    <p>Address: <span class="center">{{ player.Street }}</p>
+    <p>City: <span class="center">{{ player.City}}</p>
+    <p>State: <span class="center">{{ player.State}}</p>
+    <p>Zip Code: <span class="center">{{ player.Zipcode }}</p>
+    <p>Phone Number: <span class="center">{{ player.PhoneNumber }}</p>
 </div>
 {% endblock %}

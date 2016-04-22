@@ -10,6 +10,18 @@ h2 {
     text-shadow: 3px 3px 5px #000000;
 }
 
+h1 {
+    text-shadow: 3px 3px 5px #000000;
+}
+
+h3 {
+    text-shadow: 2px 2px 4px #000000;
+}
+
+p {
+    text-shadow: 2px 2px 4px #000000;
+}
+
 .row {
     padding-left: 60px;
 }
@@ -42,4 +54,15 @@ h2 {
 
 .navbar .navbar-collapse {
   text-align: center;
+}
+
+.right {
+    float: right;
+    padding-right: 50px;
+}
+
+.center {
+    float: right;
+    padding-right: 650px;
+    margin: 0px;
 }

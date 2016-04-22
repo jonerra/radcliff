@@ -2,10 +2,18 @@
 {% load staticfiles %}
 {% block content %}
 <div class="jumbotron">
-    <!-- <img width="275" height="183" src="http://grfx.cstv.com/schools/rutu/graphics/facilities/images/bainton1.jpg"> -->
-    <img width="275" height="183" src="{% static field.Picture.url  %}">
-    <h1>{{ field.FieldName }}</h1>
-    <p>{{ field.Street }}</p>
-    <p>{{ field.City }}</p>
+    <h2 align="center">{{ field.FieldName }}</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <img width="550" height="366" src="{% static field.Picture.url  %}" class="img-responsive center-block">
+        </div>
+        <div class="col-md-5">
+            <h3>Location:</h3>
+            <p>Street: <span class="right">{{ field.Street }}</p>
+            <p>City: <span class="right">{{ field.City }}</p>
+            <p>State: <span class="right">Connecticut</p>
+            <p>Zip Code: <span class="right">06518</p>
+        </div>
+    </div>
 </div>
 {% endblock %}

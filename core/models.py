@@ -58,7 +58,7 @@ class Volunteer(models.Model):
     PhoneNumber = models.CharField(max_length=50, verbose_name='Phone Number', help_text="Please use the following format: <em>555-555-5555</em>.")
     Email = models.EmailField(max_length=300)
     Returning = models.IntegerField(choices=returning_choices, default=0)
-    Children = models.IntegerField(null=True)
+    Children = models.IntegerField(null=True, blank=True)
 
     def __unicode__(self):
         return self.LastName
