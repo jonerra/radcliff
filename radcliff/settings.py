@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+ON_HEROKU = os.getenv('ON_HEROKU', False)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MAIN_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -23,7 +25,10 @@ MAIN_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '3t&j6ooy+%5%qw%y(=rl)&d14-05h6lv3!7x54og-x-^y&r8@8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if ON_HEROKU == True:
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = []
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -81,12 +86,19 @@ WSGI_APPLICATION = 'radcliff.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+if ON_HEROKU == False:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+  }
+else:
+    DATABASES = {}
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    ALLOWED_HOSTS = ['*']
 
 
 # Password validation
@@ -130,4 +142,4 @@ STATICFILES_DIRS = (os.path.join(MAIN_DIR, 'static'),)
 LOGIN_URL = '/user/login'
 LOGIN_REDIRECT_URL = '/'
 SITE_ID = 1
-# PHONENUMBER_DB_FORMAT = 'NATIONAL'
+STATIC_ROOT = 'staticfiles'
