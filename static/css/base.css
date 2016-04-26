@@ -59,6 +59,7 @@ p {
 .right {
     float: right;
     padding-right: 50px;
+    text-align: right;
 }
 
 .center {
