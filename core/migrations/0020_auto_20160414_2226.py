@@ -17,7 +17,11 @@ class Migration(migrations.Migration):
             name='Time',
             field=models.IntegerField(choices=[(0, ''), (1, '8:00 AM - 10:00 AM'), (2, '10:00 AM - 12:00 PM'), (3, '12:00 PM - 2:00 PM'), (4, '2:00 PM - 4:00 PM'), (5, '4:00 PM - 6:00 PM')], default=0),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='reservation',
+            name='Date',
+        ),
+        migrations.AddField(
             model_name='reservation',
             name='Date',
             field=models.DateField(),

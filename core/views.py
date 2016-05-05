@@ -43,7 +43,9 @@ class UpdateList(ListView):
     
     def get_context_data(self, **kwargs):
         context = super(UpdateList, self).get_context_data(**kwargs)
-        update_list = Update.objects.all()[:2]
+        updates = list(Update.objects.all())
+        # update_list = Update.objects.all()[:2]
+        update_list = updates[-2:]
         context['update_list'] = update_list
         return context
     
