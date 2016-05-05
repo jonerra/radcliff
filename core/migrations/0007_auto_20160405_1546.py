@@ -17,7 +17,11 @@ class Migration(migrations.Migration):
             name='FieldName',
             field=models.IntegerField(choices=[(0, ''), (1, 'Field 1'), (2, 'Field 2'), (3, 'Field 3'), (4, 'Field 4')], default=0),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='reservation',
+            name='Date',
+        ),
+        migrations.AddField(
             model_name='reservation',
             name='Date',
             field=models.DateTimeField(),
