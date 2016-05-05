@@ -12,7 +12,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='DateOfBirth',
+        ),
+        migrations.AddField(
             model_name='player',
             name='DateOfBirth',
             field=models.DateField(verbose_name='Date of Birth'),
