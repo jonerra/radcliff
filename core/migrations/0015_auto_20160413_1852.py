@@ -12,27 +12,47 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='Children',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='Children',
             field=models.IntegerField(null=True),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='DateOfBirth',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='DateOfBirth',
             field=models.DateField(verbose_name='Date of Birth'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='FirstName',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='FirstName',
             field=models.CharField(max_length=300, verbose_name='First Name'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='LastName',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='LastName',
             field=models.CharField(max_length=300, verbose_name='Last Name'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='PhoneNumber',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='PhoneNumber',
             field=models.IntegerField(verbose_name='Phone Number'),

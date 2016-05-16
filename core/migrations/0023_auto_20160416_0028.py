@@ -12,22 +12,29 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='DateOfBirth',
+        ),
+        migrations.AddField(
             model_name='player',
             name='DateOfBirth',
             field=models.DateField(verbose_name='Date Of Birth'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
             model_name='player',
             name='Zipcode',
-            field=models.IntegerField(verbose_name='Zip Code'),
         ),
-        migrations.AlterField(
+        migrations.AddField(
             model_name='volunteer',
             name='DateOfBirth',
             field=models.DateField(verbose_name='Date Of Birth'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='Zipcode',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='Zipcode',
             field=models.IntegerField(verbose_name='Zip Code'),

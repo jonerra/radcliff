@@ -13,7 +13,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='PhoneNumber',
+        ),
+        migrations.AddField(
             model_name='player',
             name='PhoneNumber',
             field=phonenumber_field.modelfields.PhoneNumberField(default='NATIONAL', max_length=128, verbose_name='Phone Number'),

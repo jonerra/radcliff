@@ -12,17 +12,29 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='GuardianFirstName',
+        ),
+        migrations.AddField(
             model_name='player',
             name='GuardianFirstName',
             field=models.CharField(max_length=300, verbose_name='Guardian First Name'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='Children',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='Children',
             field=models.IntegerField(),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='Returning',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='Returning',
             field=models.IntegerField(choices=[(0, ''), (1, 'Yes'), (2, 'No')], default=0),

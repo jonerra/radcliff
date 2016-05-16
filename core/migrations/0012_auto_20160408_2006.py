@@ -12,7 +12,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='Returning',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='Returning',
             field=models.IntegerField(choices=[(0, ''), (1, 'Y'), (2, 'N')], default=0),

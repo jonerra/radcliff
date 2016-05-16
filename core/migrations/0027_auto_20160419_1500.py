@@ -12,12 +12,20 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='reservation',
+            name='FieldID',
+        ),
+        migrations.AddField(
             model_name='reservation',
             name='FieldID',
             field=models.ForeignKey(on_delete='id', to='core.Field'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='reservation',
+            name='VolunteerID',
+        ),
+        migrations.AddField(
             model_name='reservation',
             name='VolunteerID',
             field=models.ForeignKey(on_delete='id', to='core.Volunteer'),

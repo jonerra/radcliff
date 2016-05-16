@@ -37,7 +37,6 @@ class Player(models.Model):
     City = models.CharField(max_length=300)
     State = models.CharField(max_length=300)
     Zipcode = models.IntegerField('Zip Code')
-    # PhoneNumber = PhoneNumberField(verbose_name='Phone Number')
     PhoneNumber = models.CharField(max_length=50, verbose_name='Phone Number', help_text="Please use the following format: <em>555-555-5555</em>.")
     Level = models.IntegerField(choices=level_choices, default=0)
 

@@ -12,7 +12,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='PhoneNumber',
+        ),
+        migrations.AddField(
             model_name='player',
             name='PhoneNumber',
             field=models.CharField(max_length=50, verbose_name='Phone Number'),

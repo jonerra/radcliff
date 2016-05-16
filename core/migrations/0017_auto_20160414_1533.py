@@ -12,7 +12,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='Level',
+        ),
+        migrations.AddField(
             model_name='player',
             name='Level',
             field=models.IntegerField(choices=[(0, ''), (1, 'PeeWee (Ages 8-10)'), (2, 'Minors (Ages 10-12)'), (3, 'Majors (Ages 12-14)')], default=0),

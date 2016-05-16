@@ -52,21 +52,13 @@ class UpdateList(ListView):
 class FieldList(ListView):
     model = Field
     template_name = "fields/field_list.html"
-    # success_url = reverse_lazy('success')
     
 class FieldDetail(DetailView):
     model = Field
     template_name = "fields/field_detail.html"
-    
-# class FieldUpdateView(UpdateView):
-    # model = Field
-    # form = FieldUpdateForm
-    # success_url = reverse_lazy('field')
-    # template_name = "fields/field_form.html"
-    
+
 class FieldReservationCreateView(CreateView):
     model = Reservation
-    #form = ReservationUpdateView
     success_url = reverse_lazy('reservation_success')
     template_name = "fields/reservation_form.html"
     fields = ['Date', 'Time', 'FieldID', 'VolunteerID']
@@ -76,7 +68,6 @@ class FieldReservationSuccess(TemplateView):
     
 class FieldReservationUpdateView(UpdateView):
     model = Reservation
-    #form = ReservationUpdateView
     success_url = reverse_lazy('field_list')
     template_name = "fields/reservation_form.html"
     fields = ['Date', 'Time', 'FieldID', 'VolunteerID']

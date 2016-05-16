@@ -12,7 +12,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='volunteer',
+            name='PhoneNumber',
+        ),
+        migrations.AddField(
             model_name='volunteer',
             name='PhoneNumber',
             field=models.CharField(help_text='Please use the following format: <em>555-555-5555</em>.', max_length=50, verbose_name='Phone Number'),

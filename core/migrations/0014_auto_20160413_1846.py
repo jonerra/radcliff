@@ -21,22 +21,38 @@ class Migration(migrations.Migration):
             name='DateOfBirth',
             field=models.DateField(verbose_name='Date of Birth'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='GuardianLastName',
+        ),
+        migrations.AddField(
             model_name='player',
             name='GuardianLastName',
             field=models.CharField(max_length=300, verbose_name='Guardian Last Name'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='PhoneNumber',
+        ),
+        migrations.AddField(
             model_name='player',
             name='PhoneNumber',
             field=models.IntegerField(verbose_name='Phone Number'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='PlayerFirstName',
+        ),
+        migrations.AddField(
             model_name='player',
             name='PlayerFirstName',
             field=models.CharField(max_length=300, verbose_name='Player First Name'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='player',
+            name='PlayerLastName',
+        ),
+        migrations.AddField(
             model_name='player',
             name='PlayerLastName',
             field=models.CharField(max_length=300, verbose_name='Player Last Name'),
