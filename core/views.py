@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 from .models import *
-from .forms import *
 
 # Create your views here.
 class Home(TemplateView):
